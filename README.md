@@ -4,6 +4,12 @@ A modern, full-stack employee management application with a beautiful React fron
 
 ![Employee Management System](https://img.shields.io/badge/React-18.2-blue) ![Node.js](https://img.shields.io/badge/Node.js-GraphQL-green) ![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-38bdf8)
 
+## 🔗 Live Demo
+
+- Frontend (Vercel): https://employee-management-psi-eight.vercel.app/
+- Backend GraphQL (Render): https://employee-management-5v8i.onrender.com/graphql
+
+
 ## ✨ Features
 
 ### Frontend
@@ -47,6 +53,8 @@ A modern, full-stack employee management application with a beautiful React fron
 - **Express** - Web framework
 - **Apollo Server** - GraphQL server
 - **GraphQL** - API query language
+- **MongoDB** - Database
+- **Mongoose** - ODM
 - **JWT** - Authentication
 - **bcryptjs** - Password hashing
 - **DataLoader** - Performance optimization
@@ -93,6 +101,18 @@ npm run dev
 Frontend will run on `http://localhost:5173`
 
 3. **Open your browser** and navigate to `http://localhost:5173`
+
+
+## ⚙️ Configuration
+
+- Frontend (Vite): set GraphQL endpoint at build time
+  - `VITE_GRAPHQL_URL` (example for local): `http://localhost:4000/graphql`
+  - On Vercel, configure Project → Settings → Environment Variables → `VITE_GRAPHQL_URL`
+
+- Backend (Node/Express):
+  - `MONGODB_URI` (MongoDB connection string)
+  - `PORT` (default `4000`)
+  - `CORS_ORIGINS` (comma-separated list, include your Vercel domain)
 
 
 ## 🔑 Test Credentials
