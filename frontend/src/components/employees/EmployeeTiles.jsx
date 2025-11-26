@@ -38,24 +38,24 @@ const EmployeeTiles = ({ employees, onEmployeeClick, onEdit, onFlag, onDelete, c
                             </div>
 
                             {/* Action Menu (always rendered to avoid hook mismatch; disabled for non-admins) */}
+                            {currentUserRole === 'admin' && (
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild onClick={(e) => e.stopPropagation()}>
                                     <Button
                                         variant="ghost"
                                         size="icon"
                                         className="opacity-0 group-hover:opacity-100 transition-opacity"
-                                        disabled={currentUserRole !== 'admin'}
                                         title={currentUserRole !== 'admin' ? 'Admin only' : undefined}
                                     >
                                         <MoreVertical className="w-4 h-4" />
                                     </Button>
                                 </DropdownMenuTrigger>
                                 <DropdownMenuContent align="end">
-                                    <DropdownMenuItem onClick={(e) => handleAction(e, onEdit, employee)} disabled={currentUserRole !== 'admin'}>
+                                    <DropdownMenuItem onClick={(e) => handleAction(e, onEdit, employee)} >
                                         <Edit className="w-4 h-4 mr-2" />
                                         Edit
                                     </DropdownMenuItem>
-                                    <DropdownMenuItem onClick={(e) => handleAction(e, onFlag, employee)} disabled={currentUserRole !== 'admin'}>
+                                    <DropdownMenuItem onClick={(e) => handleAction(e, onFlag, employee)} >
                                         <Flag className="w-4 h-4 mr-2" />
                                         {employee.status === 'flagged' ? 'Unflag' : 'Flag'}
                                     </DropdownMenuItem>
@@ -63,13 +63,13 @@ const EmployeeTiles = ({ employees, onEmployeeClick, onEdit, onFlag, onDelete, c
                                     <DropdownMenuItem
                                         onClick={(e) => handleAction(e, onDelete, employee)}
                                         className="text-destructive focus:text-destructive"
-                                        disabled={currentUserRole !== 'admin'}
                                     >
                                         <Trash2 className="w-4 h-4 mr-2" />
                                         Delete
                                     </DropdownMenuItem>
                                 </DropdownMenuContent>
                             </DropdownMenu>
+                            )}
                         </div>
 
                         {/* Employee Details */}
